@@ -1,24 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { motion } from "framer-motion";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <motion.div
+        style={{ width: "100px", height: "100px", background: "blue" }}
+        animate={{ x: 100 }}
+      ></motion.div>
+      <motion.div
+        style={{ width: "100px", height: "100px", background: "blue" }}
+        whileHover={{ x: 10, scale: 1.5 }}
+      ></motion.div>
+      <div style={{ width: "100px", height: "100px", background: "blue" }}>
+        <motion.span
+          style={{ color: "white" }}
+          whileHover={{ scale: 2, color: "green" }}
         >
-          Learn React
-        </a>
-      </header>
+          Hello World
+        </motion.span>
+      </div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, y: [50, 0] }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        Hello, framer motion.
+      </motion.div>
     </div>
   );
 }
