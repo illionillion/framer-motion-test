@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
 
 function App() {
+  const constraintsRef = useRef(null)
   return (
     <div className="App">
       <motion.div
@@ -26,6 +27,9 @@ function App() {
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         Hello, framer motion.
+      </motion.div>
+      <motion.div ref={constraintsRef} style={{width: '100px', height:'100px', background: '#000'}}>
+        <motion.div drag dragConstraints={constraintsRef} style={{width: '20px', height:'20px', background: '#fff'}} />
       </motion.div>
     </div>
   );
