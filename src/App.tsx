@@ -1,5 +1,6 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, useDragControls } from "framer-motion";
+import { Test } from "./Test";
 
 function App() {
   const constraintsRef = useRef(null);
@@ -9,6 +10,12 @@ function App() {
     console.log(event);
     
   }
+  const [bool, setBool] = useState<boolean>(false)
+  useEffect(()=>{
+    setInterval(()=>{
+      setBool(!bool)
+    }, 5000)
+  })
   return (
     <div className="App">
       <motion.div
@@ -73,6 +80,8 @@ function App() {
         drag="y"
         style={{ width: "20px", height: "20px", background: "#000" }}
       />
+
+      <Test isVisible={bool}>TEST</Test>
     </div>
   );
 }
